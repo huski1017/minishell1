@@ -5,7 +5,7 @@
 ## Login   <wroble_h@epitech.net>
 ## 
 ## Started on  Tue Jan 20 13:54:39 2015 Hubert Wroblewski
-## Last update Fri Jan 23 12:09:40 2015 Hubert Wroblewski
+## Last update Mon Jan 26 16:56:53 2015 Hubert Wroblewski
 ##
 
 CC	= gcc
@@ -15,7 +15,13 @@ RM	= rm -f
 NAME	= mysh
 
 SRCS	= main.c \
-	my_putstr.c
+	my_putstr.c \
+	seek_path.c \
+	my_strcmp.c \
+	minishell.c \
+	my_put_nbr.c \
+	prompt.c \
+	my_putchar.c
 
 OBJS	= $(SRCS:.c=.o)
 
