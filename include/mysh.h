@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Mon Jan 26 13:01:45 2015 Hubert Wroblewski
-** Last update Mon Jan 26 16:56:27 2015 Hubert Wroblewski
+** Last update Tue Jan 27 12:42:30 2015 Hubert Wroblewski
 */
 
 #ifndef MYSH_H_
@@ -16,9 +16,11 @@ int	seek_path(char **);
 int	my_strlen(char *);
 int	my_putstr(char *);
 int	minishell(char **);
-int	user(char **);
+int	search(char **, char *);
 void	prompt(char **);
 int	my_put_nbr(int);
 void	my_putchar(char);
+void	pwd(char **, char *);
+void	env(char **);
 
 #endif /*!MYSH_H */
