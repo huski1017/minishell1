@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Mon Jan 26 13:01:45 2015 Hubert Wroblewski
-** Last update Tue Jan 27 12:42:30 2015 Hubert Wroblewski
+** Last update Tue Jan 27 17:17:36 2015 Hubert Wroblewski
 */
 
 #ifndef MYSH_H_
@@ -21,6 +21,9 @@ void	prompt(char **);
 int	my_put_nbr(int);
 void	my_putchar(char);
 void	pwd(char **, char *);
-void	env(char **);
+void	envir(char **);
+int	builtins(char **, char *);
+void	unknow(char *);
+char	**my_cd(char **, char *);
 
 #endif /*!MYSH_H */

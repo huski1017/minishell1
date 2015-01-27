@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Fri Jan 23 15:13:41 2015 Hubert Wroblewski
-** Last update Mon Jan 26 16:15:03 2015 Hubert Wroblewski
+** Last update Tue Jan 27 14:51:38 2015 Hubert Wroblewski
 */
 
 #include <unistd.h>
@@ -23,9 +23,9 @@ int	seek_path(char **env)
 	return (i);
       i++;
     }
-  if (env[i] == NULL)
+  /*  if (env[i] == NULL)
     {
       (void)write(1, "Error : Something went wrong with \"char **env\"\n", 48);
       return (-1);
-    }
+      }*/
 }

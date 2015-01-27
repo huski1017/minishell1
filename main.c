@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Tue Jan 20 13:58:33 2015 Hubert Wroblewski
-** Last update Tue Jan 27 12:39:20 2015 Hubert Wroblewski
+** Last update Tue Jan 27 14:53:49 2015 Hubert Wroblewski
 */
 
 #include <stdlib.h>
@@ -17,17 +17,11 @@ int	main(int argc, char  **argv, char **env)
   int	pathnb;
 
   if (env[0] == NULL)
-    {
-      my_putstr("Error : Something went wrong\n");
-      exit(1);
-    }
-  else
-    {
-      stockenv = env;
-      if ((pathnb = seek_path(stockenv)) == -1)
-	return (1);
-      if (minishell(env) == -1)
-	return (-1);
-      return (0);
-    }
+    my_putstr("Be careful some function are not available\n");
+  stockenv = env;
+  if ((pathnb = seek_path(stockenv)) == -1)
+    return (1);
+  if (minishell(env) == -1)
+    return (-1);
+  return (0);
 }

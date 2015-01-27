@@ -5,11 +5,49 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Mon Jan 26 15:30:36 2015 Hubert Wroblewski
-** Last update Tue Jan 27 14:13:59 2015 Hubert Wroblewski
+** Last update Tue Jan 27 16:53:55 2015 Hubert Wroblewski
 */
 
 #include <stdlib.h>
 #include "include/mysh.h"
+
+int	builtins(char **env, char *buffer)
+{
+  if (my_strcmp(buffer, "exit") != -1)
+    exit(0);
+  else if (my_strcmp(buffer, "pwd") != -1)
+    {
+      pwd(env, "PWD");
+      return (0);
+    }
+  else if (my_strcmp(buffer, "env") != -1)
+    {
+      envir(env);
+      return (0);
+    }
+  else if (my_strcmp(buffer, "cd") != -1)
+    {
+      my_cd(env, buffer);
+      return (0);
+    }
+  return (-1);
+}
+
+void	unknow(char *buffer)
+{
+  int	i;
+
+  i = 0;
+  if (buffer[0] != '\n')
+    {
+      while (buffer[i] != '\n')
+	{
+	  my_putchar(buffer[i]);
+	  i++;
+	}
+      my_putstr(" : command not found.\n");
+    }
+}
 
 int	minishell(char **env)
 {
@@ -24,12 +62,8 @@ int	minishell(char **env)
   prompt(env);
   while (read(0, buffer, 4096) != 0)
     {
-      if (my_strcmp(buffer, "exit") != -1)
-	exit(1);
-      else if (my_strcmp(buffer, "pwd") != -1)
-	pwd(env, "PWD");
-      if (my_strcmp(buffer, "env") != -1)
-	//	env(env);
+      if (builtins(env, buffer) == -1)
+	unknow(buffer);
       free(ret);
       minishell(env);
     }

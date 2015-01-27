@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Mon Jan 26 12:02:28 2015 Hubert Wroblewski
-** Last update Mon Jan 26 16:14:51 2015 Hubert Wroblewski
+** Last update Tue Jan 27 16:37:36 2015 Hubert Wroblewski
 */
 
 int	my_strcmp(char *s1, char *s2)
