@@ -5,8 +5,10 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Tue Jan 27 16:54:17 2015 Hubert Wroblewski
-** Last update Tue Jan 27 17:21:36 2015 Hubert Wroblewski
+** Last update Wed Jan 28 12:29:09 2015 Hubert Wroblewski
 */
+
+#include "include/mysh.h"
 
 char		**my_cd(char **env, char *buffer)
 {
@@ -15,8 +17,12 @@ char		**my_cd(char **env, char *buffer)
 
   if ((i = search(env, "PWD")) != -1)
     {
-      if (buffer[2] == '-' && oldPWD != '\0')
-	
+      if (buffer[3] == '-' && oldPWD != '\0')
+	my_putstr(oldPWD);
+      else if (buffer[3] == '-' && oldPWD == '\0')
+	my_putstr("cd: OLDPWD not set\n");
+      else if (buffer[2] == '\n')
+	my_putstr("Error : invalid argument\n");
     }
   else if ((i = search(env, "PWD")) == -1)
     {

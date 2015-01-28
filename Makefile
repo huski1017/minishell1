@@ -5,7 +5,7 @@
 ## Login   <wroble_h@epitech.net>
 ## 
 ## Started on  Tue Jan 20 13:54:39 2015 Hubert Wroblewski
-## Last update Tue Jan 27 16:27:20 2015 Hubert Wroblewski
+## Last update Wed Jan 28 12:13:26 2015 Hubert Wroblewski
 ##
 
 CC	= gcc
@@ -24,7 +24,8 @@ SRCS	= main.c \
 	my_putchar.c \
 	search.c \
 	pwd.c \
-	envir.c
+	envir.c \
+	my_cd.c
 
 OBJS	= $(SRCS:.c=.o)
 
