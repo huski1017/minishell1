@@ -5,28 +5,58 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Tue Jan 27 16:54:17 2015 Hubert Wroblewski
-** Last update Thu Jan 29 11:56:09 2015 Hubert Wroblewski
+** Last update Thu Jan 29 19:17:00 2015 Hubert Wroblewski
 */
 
 #include "include/mysh.h"
 
-char		**my_cd(char **env, char *buffer)
+char		**oldPWD(char **env)
 {
-  int		i;
   static char	*oldPWD;
 
+  if (oldPWD == '\0')
+    {
+      my_putstr("cd: oldPWD not set\n");
+    }
+  else
+    my_putstr(oldPWD);
+}
+
+char	**argCD(char **env)
+{
+  printf("fail arg\n");
+}
+
+char	**realcd(char **env)
+{
+  printf("correct\n");
+}
+
+char		**my_cd(char **env, char *buffer)
+{
+  char		comp[3] = "-\n\0";
+  int		i;
+  static char	**(*function[3])(char **env);
+  int		cnt;
+
+  function[0] = oldPWD;
+  function[1] = argCD;
+  function[2] = realcd;
+  i = 0;
+  cnt = 0;
   if ((i = search(env, "PWD")) != -1)
     {
-      if (buffer[3] == '-' && oldPWD != '\0')
-	my_putstr(oldPWD);
-      else if (buffer[3] == '-' && oldPWD == '\0')
-	my_putstr("cd: OLDPWD not set\n");
-      else if (buffer[2] == '\n')
-	my_putstr("Error : invalid argument\n");
-      else if (buffer[2] != '\n' && buffer[3] != '-');
+      while (comp[cnt] != buffer[3])
+	{
+	  cnt++;
+	  if (cnt == 2 || cnt == 3)
+	    {
+	      function[--cnt](env);
+	      return (0);
+	    }
+	}
+      function[cnt](env);
     }
   else if ((i = search(env, "PWD")) == -1)
-    {
-      my_putstr("Error : i don\"t know where you are.\n");
-    }
+    my_putstr("Error : i don\"t know where you are.\n");
 }

@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:00:49 2015 Hubert Wroblewski
-** Last update Fri Jan 23 12:10:17 2015 Hubert Wroblewski
+** Last update Thu Jan 29 17:45:28 2015 Hubert Wroblewski
 */
 
 #include <stdlib.h>
@@ -26,7 +26,7 @@ int	my_putstr(char *str)
 {
   if ((write(1, str, my_strlen(str))) == -1)
     {
-      (void) write(1, "Error : function write failed.\n", 31);
+      (void)write(1, "Error : function write failed.\n", 31);
       exit(1);
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Tue Jan 20 13:58:33 2015 Hubert Wroblewski
-** Last update Tue Jan 27 14:53:49 2015 Hubert Wroblewski
+** Last update Thu Jan 29 17:52:11 2015 Hubert Wroblewski
 */
 
 #include <stdlib.h>
@@ -16,7 +16,7 @@ int	main(int argc, char  **argv, char **env)
   char	**stockenv;
   int	pathnb;
 
-  if (env[0] == NULL)
+  if (env == NULL)
     my_putstr("Be careful some function are not available\n");
   stockenv = env;
   if ((pathnb = seek_path(stockenv)) == -1)

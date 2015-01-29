@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Mon Jan 26 15:30:36 2015 Hubert Wroblewski
-** Last update Wed Jan 28 14:45:57 2015 Hubert Wroblewski
+** Last update Thu Jan 29 16:02:08 2015 Hubert Wroblewski
 */
 
 #include <stdlib.h>
@@ -53,15 +53,17 @@ int	minishell(char **env)
 {
   char	buffer[4096];
   char	*ret;
-
+  int	ra;
   if ((ret = malloc(sizeof(buffer))) == NULL)
     {
       my_putstr("Error = malloc failed");
       return (-1);
     }
   prompt(env);
-  while (read(0, buffer, 4096) != 0)
+  while ((ra = read(0, buffer, 4096)) != 0)
     {
+      if (ra == -1)
+	return (-1);
       if (builtins(env, buffer) == -1)
 	unknow(buffer);
       free(ret);
