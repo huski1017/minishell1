@@ -5,7 +5,7 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Tue Jan 27 16:54:17 2015 Hubert Wroblewski
-** Last update Wed Jan 28 12:29:09 2015 Hubert Wroblewski
+** Last update Thu Jan 29 11:56:09 2015 Hubert Wroblewski
 */
 
 #include "include/mysh.h"
@@ -23,6 +23,7 @@ char		**my_cd(char **env, char *buffer)
 	my_putstr("cd: OLDPWD not set\n");
       else if (buffer[2] == '\n')
 	my_putstr("Error : invalid argument\n");
+      else if (buffer[2] != '\n' && buffer[3] != '-');
     }
   else if ((i = search(env, "PWD")) == -1)
     {
