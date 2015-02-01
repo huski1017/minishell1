@@ -5,23 +5,25 @@
 ** Login   <wroble_h@epitech.net>
 ** 
 ** Started on  Tue Jan 20 13:58:33 2015 Hubert Wroblewski
-** Last update Thu Jan 29 17:52:11 2015 Hubert Wroblewski
+** Last update Fri Jan 30 17:15:05 2015 Hubert Wroblewski
 */
 
 #include <stdlib.h>
 #include "include/mysh.h"
 
-int	main(int argc, char  **argv, char **env)
+extern char **environ;
+
+int	main()
 {
-  char	**stockenv;
+  char	**env;
   int	pathnb;
 
-  if (env == NULL)
+  if (environ == NULL)
     my_putstr("Be careful some function are not available\n");
-  stockenv = env;
-  if ((pathnb = seek_path(stockenv)) == -1)
+  env = environ;
+  if ((pathnb = seek_path(env)) == -1)
     return (1);
-  if (minishell(env) == -1)
+  if (minishell() == -1)
     return (-1);
   return (0);
 }
